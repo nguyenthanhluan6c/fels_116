@@ -1,9 +1,14 @@
-
 en:
-  home: "Home"
-  help: "Help"
-  about: "About"
-  login: "Log in"  
+  _home: "Home"
+  _help: "Help"
+  _about: "About"
+  _login: "Log in"
+  _signup: "Sign up"
+  _error: "Error"
+  _users: "Users"
+  the_form_contains: "The form contains"
+  buttons:
+    create_new_account: "Create new account"
   my_app:
     name: "FELS"
   products:
@@ -13,3 +18,7 @@ en:
     login: "Logged in successfully."
   footer:
     me: "Framgia Internship"
+  users:
+    index:
+      title: "All users"
+    success_registed: "Successfully registed"  
