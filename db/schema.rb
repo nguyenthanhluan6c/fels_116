@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20160308044230) do
     t.string   "name"
     t.string   "email"
     t.string   "avatar"
-    t.string   "password"
     t.boolean  "is_admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

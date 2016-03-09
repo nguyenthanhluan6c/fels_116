@@ -31,8 +31,8 @@ class User < ActiveRecord::Base
   end
 
   def remember
-    remember_token = User.new_token
-    update_attributes remember_digest: User.create_digest(remember_token)
+    remember_token = new_token
+    update_attributes remember_digest: create_digest(remember_token)
   end
 
   def authenticated? attribute, token

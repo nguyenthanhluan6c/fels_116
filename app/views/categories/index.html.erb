@@ -1,0 +1,7 @@
+<% provide title: t("_categories") %>
+<h1><% t "_categories" %></h1>
+<%= will_paginate %>
+<ul class="categories">
+  <%= render @categories %>
+</ul>
+<%= will_paginate %>
