@@ -28,3 +28,16 @@ end
   description: description,
   number_of_words_in_lesson: number_of_words_in_lesson  
 end
+
+categories = Category.order(:created_at).take(10)
+categories.each {|category| 
+  rand_times = rand 50..100;
+  rand_times.times do
+  name = Faker::Name.name
+  word= category.words.create!(name: name) 
+  word.word_options.create(content: "A", is_correct: false)
+  word.word_options.create(content: "B", is_correct: false)
+  word.word_options.create(content: "C", is_correct: true)
+  word.word_options.create(content: "D", is_correct: false)
+  end
+}

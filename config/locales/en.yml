@@ -12,6 +12,7 @@ en:
   _setting: "Settings"
   _categories: "Categories"
   _start: "Start"
+  user_can_not_take_lesson: "Cannot take lesson"
   you_have_learned: "You have learned "
   please_log_in: "Please log in."
   new_user?: "New user?"
