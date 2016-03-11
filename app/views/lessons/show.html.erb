@@ -10,8 +10,12 @@
   </aside>
   <div class="col-md-8">    
     <h3><%= @lesson.category.name %></h3>  
-    <ol class="words">
-      <%= render @words %>
-    </ol>
+    <%= form_for [@lesson.category, @lesson], method: :put do |f| %>   
+      <ol class="results">
+        <%= render @results, form: f %>
+      </ol>
+      <%= f.hidden_field :status, value: "done_lesson" %>        
+      <%= f.submit t("_finish"), class: "btn btn-primary" if @lesson.new_lesson? %>
+    <% end %>
   </div>
 </div>

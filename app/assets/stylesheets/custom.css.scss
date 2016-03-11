@@ -248,3 +248,17 @@ input {
     }
   }
 }
+
+.input-radio{
+  input{
+    width: auto;
+  }
+}
+
+.true-label{
+  color: #7fff00;
+}
+
+.false-label{
+  color: #ff0000;
+}
