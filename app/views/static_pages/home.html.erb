@@ -1,1 +1,28 @@
 <% provide title: t("home") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1>
+          <%= gravatar_for current_user %>
+          <%= current_user.name %>
+        </h1>
+      </section>
+      <section class="stats">
+        <%= render "shared/stats" %> 
+      </section>
+    </aside>
+    <aside class="col-md-8">
+    <h2><% t "feeds" %></h2>
+    <%= will_paginate @feeds %>
+    <ul class="activities">
+      <%= render @feeds %>
+    </ul>
+    <%= will_paginate @feeds %> 
+    </aside>
+<% else %>
+  <div class="center jumbotron">
+    <h1><%= t "welcome" %></h1>
+    <%= link_to t("sign_up_now"), signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

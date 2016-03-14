@@ -24,6 +24,15 @@ en:
   _not_learn: "Not learn"
   _select: "Select"
   _all_words: "All words"
+  sign_up_now: "Sign up now!"
+  feed: "Feeds"
+  follow: "Follow"
+  unfollow: "Unfollow"
+  follower: "Follower"
+  following: "Following"
+
+  view_my_profile: "View my profile"
+  welcome: "Welcome to Framgia E-learning System"
   lesson_updated: "You had successfully finish your lesson"
   user_activity: "learned %{word_count} words at Lesson \"%{category_name}\" at (%{activity_time})."
   can_not_update_lesson: "can not update lesson"
@@ -59,3 +68,6 @@ en:
     all_words: "All word"
     learned: "Learn"
     not_learn: "Not learn"
+  stat:
+    follower: "%{number} follower"
+    following: "%{number} following"

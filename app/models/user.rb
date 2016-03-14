@@ -45,6 +45,22 @@ class User < ActiveRecord::Base
     update_attributes remember_digest: nil
   end
   
+  def follow other_user
+    active_relationships.create followed_id: other_user.id
+  end
+
+  def unfollow other_user
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following? other_user
+    following.include? other_user
+  end
+
+  def feed
+    Activity.where(user_id: [following.ids, self.id]).order "created_at desc"
+  end
+  
   private
   def downcase_email
     email = email.downcase if email.present?
