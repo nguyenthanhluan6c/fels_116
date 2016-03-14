@@ -1,0 +1,4 @@
+category_type:
+  all_words: "all_words"
+  learned: "learned"
+  not_learn: "not_learn"

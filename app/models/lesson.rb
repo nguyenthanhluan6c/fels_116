@@ -15,6 +15,6 @@ class Lesson < ActiveRecord::Base
     words = category.words.order("RANDOM()").limit number
     words.each do |word|
       result = results.create word: word      
-      end     
+    end     
   end
 end
