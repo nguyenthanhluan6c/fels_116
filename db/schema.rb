@@ -31,10 +31,11 @@ ActiveRecord::Schema.define(version: 20160308044230) do
 
   create_table "lessons", force: :cascade do |t|
     t.integer  "number_of_right_answer"
+    t.integer  "status",                 default: 0
     t.integer  "user_id"
     t.integer  "category_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "relationships", force: :cascade do |t|

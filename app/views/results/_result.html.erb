@@ -1,0 +1,24 @@
+<li id="result-<%= result.id %>">
+  <%= form.fields_for :results, result do |ff| %>
+    <%= ff.label result.word.name %> 
+    <% result.word.word_options.each do |option| %>
+      <div class="input-radio">
+        <label>
+          <% if result.lesson.new_lesson? %>
+            <%= ff.radio_button :word_option_id, option.id %>
+            <%= ff.label option.content %>
+          <% else %>
+            <%= ff.radio_button :word_option_id, option.id, disabled: true,
+              checked: (option.id == result.word_option_id)? true : false %>
+            <% if result.word_option.present? && result.word_option.id == option.id %>
+              <%= ff.label option.content,
+                class: result.word_option.is_correct ? "true-label" : "false-label" %>
+            <% else %>
+              <%= ff.label option.content %>
+            <% end %>  
+          <% end %>
+        </label>
+      </div>
+    <% end %>
+  <% end %>  
+</li>

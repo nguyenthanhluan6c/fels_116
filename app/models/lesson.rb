@@ -6,6 +6,10 @@ class Lesson < ActiveRecord::Base
   has_many :words, through: :results
   has_many :results
 
+  accepts_nested_attributes_for :results
+
+  enum status: {new_lesson: 0, done_lesson: 1}
+  
   def build_lesson_results    
     number = category.number_of_words_in_lesson    
     words = category.words.order("RANDOM()").limit number
