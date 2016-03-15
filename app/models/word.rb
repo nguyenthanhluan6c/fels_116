@@ -7,7 +7,7 @@ class Word < ActiveRecord::Base
   
   scope :learned, ->(user, category){joins(:lessons)
     .where(lessons: {user_id: user.id}, category_id: category.id)
-    .distinct.where.not results: {word_option_id: nil}}
+    .merge(Result.correct_results).distinct }
   scope :not_learn,->(user, category){where(category_id: category.id)
     .where.not id: Word.learned(user, category)}
   scope :all_words, -> (user, category) {where category_id: category.id}

@@ -7,7 +7,15 @@
         <%= @user.name %>
       </h1>
     </section>
-    <section class="stats">     
+    <section class="stats">
     </section>
+  </aside>
+  <aside class="col-md-8">
+    <h2><% t "_activities" %></h2>
+    <%= will_paginate @activities %>
+    <ul class="activities">
+      <%= render @activities %>
+    </ul>
+    <%= will_paginate @activities %>    
   </aside>
 </div>

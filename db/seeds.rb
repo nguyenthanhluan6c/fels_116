@@ -31,7 +31,7 @@ end
 
 categories = Category.order(:created_at).take(10)
 categories.each {|category| 
-  rand_times = rand 50..100;
+  rand_times = rand 30..40
   rand_times.times do
   name = Faker::Name.name
   word= category.words.create!(name: name) 

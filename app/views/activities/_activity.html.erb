@@ -1,0 +1,8 @@
+<li>
+  <%= gravatar_for activity.user, size: 50 %>
+  <%= label_tag activity.user.name %>
+  <%= t "user_activity", 
+    word_count: activity.lesson.number_of_right_answer,
+    category_name: activity.lesson.category.name,
+    activity_time: l(activity.created_at, format: :default) %>
+</li>

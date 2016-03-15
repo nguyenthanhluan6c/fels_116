@@ -1,7 +1,8 @@
 <li id="category-<%= category.id %>">  
   <span class="category"><%= category.name %></span>
-  <span class="title"><%= t "you_have_learned" %></span>
-  <span class="progress"><%= category.number_of_words_in_lesson %></span>   
+  <span class="title"><%= t "you_have_learned",
+    number: (category.number_of_learned_word current_user),
+    total: category.words.count %></span>
   <p class="description"><%= category.description %></p> 
   <%= button_to t("_start"), category_lessons_path(category), class: "btn btn-primary" %>  
 </li>

@@ -17,8 +17,9 @@ class LessonsController < ApplicationController
     @results = @lesson.results    
   end
 
-  def update    
-    if @lesson.update_attributes lesson_params      
+  def update
+    if @lesson.update_attributes lesson_params
+      current_user.activities.create lesson: @lesson    
       flash[:success] = t "lesson_updated"
       @results = @lesson.results
       redirect_to [@lesson.category, @lesson]

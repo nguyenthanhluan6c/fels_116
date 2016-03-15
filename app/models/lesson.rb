@@ -10,11 +10,17 @@ class Lesson < ActiveRecord::Base
 
   enum status: {new_lesson: 0, done_lesson: 1}
   
+  after_update :update_number_of_right_answer
+  
   def build_lesson_results    
     number = category.number_of_words_in_lesson    
     words = category.words.order("RANDOM()").limit number
     words.each do |word|
-      result = results.create word: word      
+      results.create word: word      
     end     
+  end
+
+  def update_number_of_right_answer
+    update_column :number_of_right_answer, results.correct_results.count unless new_record?
   end
 end
