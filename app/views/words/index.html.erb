@@ -1,0 +1,31 @@
+<% provide title: t("_words") %>
+<h1><% t "_words" %></h1>
+<div class="container-fluid">
+  <%= form_tag words_path, method: "get" do %>
+    <div class="col-md-3">
+      <% if @category.present? %>
+        <%= collection_select :category, :category_id, @categories, :id, :name,
+          {selected: @category.id} %>
+      <% else %>
+        <%= collection_select :category, :category_id, @categories, :id, :name,
+          {prompt: t("_select")} %>
+      <% end %>      
+    </div>    
+    <div class="input-radio", class= "col-md4">
+     <% Settings.category_type.each do |key, type| %>
+        <label>
+          <%= radio_button_tag :filter_state, type, type == @filter_state %>
+          <%= t "filter_type.#{key}" %>
+        </label>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= submit_tag t("_filter"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<%= will_paginate %>
+<ol class="words">
+  <%= render @words %>
+</ol>
+<%= will_paginate %>

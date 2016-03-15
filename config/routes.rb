@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :users
   resources :categories, only: [:index] do
     resources :lessons, only: [:create, :show, :update]
-  end  
+  end
+  resources :words, only: [:index]
 end
