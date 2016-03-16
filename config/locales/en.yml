@@ -26,6 +26,7 @@ en:
   _all_words: "All words"
   _success: "Successfully"
   _danger: "Some thing wrong!"
+  _new_category: "Create new category"
   sign_up_now: "Sign up now!"
   detelte: "Delete"
   confirm: "Are you sure?"
@@ -36,12 +37,17 @@ en:
   following: "Following"
   verify_admin: "Admin only!"
   view_my_profile: "View my profile"
+  update_category: "Update category"
+  category_updated: "Category updated"
   welcome: "Welcome to Framgia E-learning System"
   lesson_updated: "You had successfully finish your lesson"
   user_activity: "learned %{word_count} words in Lesson \"%{category_name}\" at (%{activity_time})."
+  number_of_words_in_lesson: "Lesson of this category will have %{number} words"
   can_not_update_lesson: "can not update lesson"
   user_can_not_take_lesson: "Cannot take lesson"
   you_have_learned: "You have learned %{number}/%{total} words"
+  category_deleted: "Category deleted"
+  category_can_not_delete: "Category can not delete"
   please_log_in: "Please log in."
   new_user?: "New user?"
   forgot_password: "Forgot password"
@@ -55,6 +61,7 @@ en:
   buttons:
     create_new_account: "Create new account"
     update_profile: "Update profile"
+    update_category: "Update category"
   my_app:
     name: "FELS"
   products:
@@ -64,6 +71,8 @@ en:
     login: "Logged in successfully."
   footer:
     me: "Framgia Internship"
+  category:
+    success_created: "Category successfully created"
   users:
     index:
       title: "All users"

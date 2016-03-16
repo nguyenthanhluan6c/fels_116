@@ -1,0 +1,9 @@
+<li id="category-<%= category.id %>">  
+  <span class="category"><%= category.name %></span>
+  <span class="title"><%= t "number_of_words_in_lesson",
+    number: category.number_of_words_in_lesson %></span>
+  <p class="description"><%= category.description %></p>
+  <%= link_to t("edit"), edit_admin_category_path(category) %>
+  <%= link_to t("delete"), [:admin, category], method: :delete,
+    data: {confirm: t("confirm")} %>
+</li>
