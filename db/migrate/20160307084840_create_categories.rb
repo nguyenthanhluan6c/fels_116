@@ -4,7 +4,7 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :image
-      t.integer :number_of_words_in_lesson
+      t.integer :number_of_words_in_lesson, null: false
 
       t.timestamps null: false
     end
