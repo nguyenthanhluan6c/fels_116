@@ -28,15 +28,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def destroy  
-    if @user.destroy      
-      flash[:success] = t "user_deleted"      
-    else
-      flash[:danger] = t "user_can_not_delete"     
-    end
-    redirect_to users_url
-  end
-
   def update
     if @user.update_attributes user_params      
       flash[:success] = t "profile_updated"
@@ -52,6 +43,6 @@ class UsersController < ApplicationController
   end
 
   def load_user
-    @user = User.find params[:id]
+    @user = User.find_by id: params[:id]
   end
 end
