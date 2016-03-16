@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @users = User.paginate page: params[:page]
   end
 
-  def show   
+  def show 
     @activities = @user.activities.order("created_at desc").paginate page: params[:page]
   end
 

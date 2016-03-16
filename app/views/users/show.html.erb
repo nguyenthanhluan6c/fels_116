@@ -8,9 +8,11 @@
       </h1>
     </section>
     <section class="stats">
+      <%= render "shared/stats" %> 
     </section>
   </aside>
   <aside class="col-md-8">
+    <%= render "follow_form" %>
     <h2><% t "_activities" %></h2>
     <%= will_paginate @activities %>
     <ul class="activities">

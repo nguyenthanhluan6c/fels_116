@@ -41,3 +41,10 @@ categories.each {|category|
   word.word_options.create(content: "D", is_correct: false)
   end
 }
+
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each{|followed| user.follow followed}
+followers.each{|follower| follower.follow user}

@@ -16,7 +16,7 @@ class LessonsController < ApplicationController
   def show   
     @results = @lesson.results    
   end
-
+  
   def update
     if @lesson.update_attributes lesson_params
       current_user.activities.create lesson: @lesson    
