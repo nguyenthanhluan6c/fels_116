@@ -1,4 +1,8 @@
 en:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      short: '%d %b %H:%M'
   _home: "Home"
   _help: "Help"
   _about: "About"
@@ -12,6 +16,7 @@ en:
   _setting: "Settings"
   _categories: "Categories"
   _words: "Words"
+  _activities: "Activities"
   _start: "Start"
   _finish: "Finish"
   _filter: "Filter"
@@ -20,9 +25,10 @@ en:
   _select: "Select"
   _all_words: "All words"
   lesson_updated: "You had successfully finish your lesson"
+  user_activity: "learned %{word_count} words at Lesson \"%{category_name}\" at (%{activity_time})."
   can_not_update_lesson: "can not update lesson"
   user_can_not_take_lesson: "Cannot take lesson"
-  you_have_learned: "You have learned "
+  you_have_learned: "You have learned %{number}/%{total} words"
   please_log_in: "Please log in."
   new_user?: "New user?"
   forgot_password: "Forgot password"
@@ -48,7 +54,7 @@ en:
   users:
     index:
       title: "All users"
-    success_registed: "Successfully registed" 
+    success_registed: "Successfully registed"
   filter_type:
     all_words: "All word"
     learned: "Learn"
