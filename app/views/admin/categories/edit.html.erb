@@ -1,7 +1,24 @@
 <% provide title: t("_category") %>
-<% provide :button_text, t("update_category") %>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render "form" %>
-  </div>
+<div class="col-md-8">    
+  <h3><%= @category.name %></h3>  
+  <%= form_for [:admin, @category] do |f| %>
+    <%= render "shared/error_messages", object: @category %>
+    <div class = "fields" >
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+
+      <%= f.label :number_of_words_in_lesson %>
+      <%= f.number_field :number_of_words_in_lesson, class: "form-control" %>
+    </div>
+    <ol class = "words">
+      <%= f.fields_for :words, @words do |builder| %>   
+        <%= render "word_fields", f: builder %>
+      <% end %>
+      <%= link_to_add_fields t("add_word"), f, :words %> 
+    </ol>     
+    <%= f.submit t("_update_category"), class: "btn btn-primary" %>
+   <% end %>  
 </div>
