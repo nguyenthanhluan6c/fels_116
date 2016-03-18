@@ -19,7 +19,7 @@ class Admin::CategoriesController < Admin::BaseController
     end
   end
 
-  def edit    
+  def edit
   end
 
   def update
@@ -42,7 +42,9 @@ class Admin::CategoriesController < Admin::BaseController
 
   private
   def category_params
-    params.require(:category).permit :name, :description, :number_of_words_in_lesson
+    params.require(:category).permit :name, :description, :number_of_words_in_lesson,
+      words_attributes: [:id, :name, :_destroy, word_options_attributes:[:id,
+      :content, :is_correct, :_destroy]]
   end
   
   def load_category

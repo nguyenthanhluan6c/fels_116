@@ -24,3 +24,8 @@ group :development do
   gem "spring"
   gem "faker", "1.4.2"
 end
+
+group :production do
+  gem "pg"
+  gem "rails_12factor"
+end
