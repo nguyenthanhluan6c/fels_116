@@ -1,9 +1,19 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <strong id="following" class="stat">
-    <%= t "stat.following", number: @user.following.count %>
-  </strong>
-  <strong id="followers" class="stat">
-    <%= t "stat.follower", number: @user.followers.count %>
-  </strong>
+  <label class = "label-auto">
+    <strong id="following" class="stat">
+    <%= @user.following.count %>
+    </strong>
+    <strong>
+      <%= link_to t("following"), user_follows_path(@user, {option: "following"}) %>
+    </strong>
+  </label>
+  <label class = "label-auto">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>    
+    </strong>
+    <strong>
+      <%= link_to t("followers"), user_follows_path(@user, {option: "followers"}) %>
+    </strong>
+  </label>
 </div>

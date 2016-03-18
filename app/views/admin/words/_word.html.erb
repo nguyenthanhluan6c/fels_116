@@ -1,0 +1,12 @@
+<li id="word-<%= word.id %>">  
+  <span class="word"><%= word.name %></span>
+  <% word.word_options.each do |option| %>
+    <div class="input-radio">
+      <label>
+        <%= check_box_tag "","", checked = option.is_correct?,
+          {disabled: true} %>
+        <%= option.content %>
+      </label>
+    </div>
+  <% end %>
+</li>

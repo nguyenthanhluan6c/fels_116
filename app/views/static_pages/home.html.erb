@@ -13,7 +13,10 @@
       </section>
     </aside>
     <aside class="col-md-8">
-    <h2><% t "feeds" %></h2>
+    <%= link_to t("_words"), words_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to t("_lessons"), categories_path, class: "btn btn-lg btn-primary" %>
+
+    <h1><%= t "feeds" %></h1>
     <%= will_paginate @feeds %>
     <ul class="activities">
       <%= render @feeds %>
