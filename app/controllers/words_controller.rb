@@ -1,12 +1,13 @@
 class WordsController < ApplicationController
   def index
     @categories = Category.all
+    @filter_state = params[:filter_state] || Settings.category_type.all_words
     if category_id.present?
-      @category = Category.find category_id      
-      @filter_state = params[:filter_state] || Settings.category_type.all_words
+      @category = Category.find category_id     
       @words = Word.send @filter_state, current_user, @category
     else
-      @words = Word.all
+      @filter_state_no_category = "#{@filter_state}_no_category"
+      @words = Word.send @filter_state_no_category, current_user
     end
     @words = @words.paginate page: params[:page]
   end

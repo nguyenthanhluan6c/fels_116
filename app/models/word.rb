@@ -12,11 +12,15 @@ class Word < ActiveRecord::Base
 
   scope :learned, ->(user, category){joins(:lessons)
     .where(lessons: {user_id: user.id}, category_id: category.id)
-    .merge(Result.correct_results).distinct }
-  scope :not_learn,->(user, category){where(category_id: category.id)
+    .merge(Result.correct_results).distinct}
+  scope :not_learn, ->(user, category){where(category_id: category.id)
     .where.not id: Word.learned(user, category)}
-  scope :all_in_category, ->(user, category) {where category_id: category.id}
-  scope :all_words, ->(user, category) {}
+  scope :all_words, ->(user, category){where(category_id: category.id)}
+  scope :learned_no_category, ->(user){joins(:lessons)
+    .where(lessons: {user_id: user.id})
+    .merge(Result.correct_results).distinct}
+  scope :not_learn_no_category, ->(user){where.not id: Word.learned_no_category(user)}
+  scope :all_words_no_category, ->(user){}
 
   private
   def at_least_one_right_word_option

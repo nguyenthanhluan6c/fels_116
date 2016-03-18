@@ -5,10 +5,10 @@
     <div class="col-md-3">
       <% if @category.present? %>
         <%= collection_select :category, :category_id, @categories, :id, :name,
-          {selected: @category.id} %>
+          {selected: @category.id, include_blank: t("_select")} %>
       <% else %>
         <%= collection_select :category, :category_id, @categories, :id, :name,
-          {prompt: t("_select")} %>
+          {include_blank: t("_select")} %>
       <% end %>      
     </div>    
     <div class="input-radio", class= "col-md4">
