@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::BaseController 
-  before_action :load_category, only: [:destroy, :edit, :update]
+  before_action :load_category, except: [:index, :new, :create]
 
   def index
    @categories = Category.paginate page: params[:page]
@@ -19,14 +19,19 @@ class Admin::CategoriesController < Admin::BaseController
     end
   end
 
+  def show
+    @words = @category.words
+  end
+
   def edit
   end
 
   def update
     if @category.update_attributes category_params      
       flash[:success] = t "category_updated"
-      redirect_to admin_categories_path
+      redirect_to [:admin, @category]
     else
+      @category.reload
       render :edit
     end
   end

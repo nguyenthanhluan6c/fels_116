@@ -1,6 +1,6 @@
 <li>
   <%= gravatar_for user, size: 50 %>
-  <%= user.name %>
+  <%= link_to user.name, user_path(user) %>
   <%= user.email %>
   <% unless current_user? user %>
     <%= link_to t("delete"), admin_user_path(user), method: :delete,

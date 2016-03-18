@@ -15,7 +15,7 @@
         <%= render @results, form: f %>
       </ol>
       <%= f.hidden_field :status, value: "done_lesson" %>        
-      <%= f.submit t("_finish"), class: "btn btn-primary" if @lesson.new_lesson? %>
+      <%= f.submit t("_finish"), class: "btn btn-primary" if @lesson.new_lesson? && @lesson.user == current_user %>
     <% end %>
   </div>
 </div>

@@ -5,4 +5,5 @@
     word_count: activity.lesson.number_of_right_answer,
     category_name: activity.lesson.category.name,
     activity_time: l(activity.created_at, format: :default) %>
+  <%= link_to t("details"), category_lesson_path(activity.lesson.category, activity.lesson) %>
 </li>

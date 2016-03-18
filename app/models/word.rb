@@ -7,10 +7,23 @@ class Word < ActiveRecord::Base
 
   accepts_nested_attributes_for :word_options, allow_destroy: true
 
+  validates_presence_of :name
+  validate :at_least_one_right_word_option
+
   scope :learned, ->(user, category){joins(:lessons)
     .where(lessons: {user_id: user.id}, category_id: category.id)
     .merge(Result.correct_results).distinct }
   scope :not_learn,->(user, category){where(category_id: category.id)
     .where.not id: Word.learned(user, category)}
-  scope :all_words, ->(user, category) {where category_id: category.id}
+  scope :all_in_category, ->(user, category) {where category_id: category.id}
+  scope :all_words, ->(user, category) {}
+
+  private
+  def at_least_one_right_word_option
+    valid = false
+    word_options.each do |option|     
+      valid = option.is_correct? ? true : valid unless option.marked_for_destruction?
+    end 
+    errors.add :word_options, I18n.t("at_least_1_right") unless valid
+  end
 end
