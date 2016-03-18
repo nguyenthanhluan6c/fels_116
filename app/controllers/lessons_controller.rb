@@ -20,7 +20,7 @@ class LessonsController < ApplicationController
   def update
     if @lesson.update_attributes lesson_params
       current_user.activities.create lesson: @lesson    
-      flash[:success] = t "lesson_updated"
+      flash[:success] = t "lesson_updated", number: @lesson.number_of_right_answer
       @results = @lesson.results
       redirect_to [@lesson.category, @lesson]
     else

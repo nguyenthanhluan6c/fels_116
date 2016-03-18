@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160308044230) do
     t.string   "name"
     t.string   "description"
     t.string   "image"
-    t.integer  "number_of_words_in_lesson"
+    t.integer  "number_of_words_in_lesson", null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

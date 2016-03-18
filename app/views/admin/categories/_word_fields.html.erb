@@ -1,0 +1,13 @@
+<li>
+  <fieldset>
+    <label class="input-radio"> 
+      <%= f.text_field :name%>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to t("remove"), "", class: "remove_fields" %>
+    </label>
+    <%= f.fields_for :word_options do |word_options_for_form| %>
+      <%= render "word_option_fields", f: word_options_for_form %>
+    <% end %>
+    <%= link_to_add_fields t("add_option"), f, :word_options %>
+  </fieldset>
+</li>
